@@ -1,0 +1,129 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #0f0f0f, #1f1f1f, #003366, #000033);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+
+.stopwatch {
+  margin-bottom: 30px;
+}
+
+.clock-ring {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 20px;
+  border: 12px solid #00ffff;
+  border-radius: 50%;
+  background-color: #121212;
+  box-shadow: 0 0 25px #00ffffaa, inset 0 0 10px #00ffff33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+.time-display {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+.controls button {
+  margin: 8px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #00ffff;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.controls button:hover {
+  background: #00cccc;
+  transform: scale(1.05);
+}
+
+.laps {
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+.lap-item {
+  padding: 8px;
+  margin: 5px auto;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 5px;
+  width: 80%;
+  font-size: 14px;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 15px #00ffff99, inset 0 0 5px #00ffff33;
+  }
+  50% {
+    box-shadow: 0 0 35px #00ffffcc, inset 0 0 10px #00ffff55;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.laps::-webkit-scrollbar {
+  width: 6px;
+}
+.laps::-webkit-scrollbar-thumb {
+  background-color: #00ffff66;
+  border-radius: 5px;
+}
